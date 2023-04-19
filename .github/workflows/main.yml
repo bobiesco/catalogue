@@ -3,27 +3,11 @@ name: ci
 on:
   push:
     branches:
-      - "*"  # run for branches
-    tags:
-      - "*"  # run for tags
+      master
+      
   pull_request:
     branches:
-      - "*"  # run for branches
-    tags:
-      - "*"  # run for tags
-
-jobs:
-  test:
-    defaults:
-      run:
-        working-directory: go/src/github.com/microservices-demo/catalogue
-    runs-on: ubuntu-latest
-    env:
-      GROUP: weaveworksdemos
-      COMMIT: ${{ github.sha }}
-      REPO: catalogue
-      GO_VERSION: 1.7.5
-      GOPATH: /home/runner/work/catalogue/catalogue/go
+      master
 
     steps:
       - uses: actions/checkout@v2
